@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Routes, Route, useParams } from "react-router-dom";
 
-function App() {
+import Header from "./containers/Header";
+import Home from "./pages/Home";
+import JobDetail from "./pages/JobDetail";
+
+import useWindowSize from "./hooks/useWindowSize";
+
+const App = () => {
+  const [jobOffers, setJobOffers] = useState([]);
+  const { width } = useWindowSize();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="font-primary text-darkGray bg-lightGray dark:bg-midnight transition transition-700">
+      <div className="max-w-[1110px] mx-auto">
+        <Header width={width} />
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                jobOffers={jobOffers}
+                setJobOffers={setJobOffers}
+                width={width}
+              />
+            }
+          />
+          <Route
+            path="/job/:jobId"
+            element={<JobDetail jobOffers={jobOffers} />}
+          />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
