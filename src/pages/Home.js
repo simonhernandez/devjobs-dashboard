@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Jobs } from "../containers";
 
-import { IconSearch, IconSearchPurple, IconFilter, IconLocation } from "../constants/images";
+import {
+  IconSearch,
+  IconSearchPurple,
+  IconFilter,
+  IconLocation,
+} from "../constants/images";
 
 import data from "../data/data.json";
 import { Button } from "../components";
@@ -16,14 +21,14 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
   const filterJobs = () => {
     filteredJobOffers = jobOffers.filter(
       (jobOffer) =>
-        jobOffer.position.toLowerCase().includes(searchTerm) &&
+        (jobOffer.position.toLowerCase().includes(searchTerm) ||
+          jobOffer.company.toLowerCase().includes(searchTerm)) &&
         jobOffer.location.toLowerCase().includes(locationSearchTerm)
     );
     setSearchTerm("");
     setLocationSearchTerm("");
     setJobOffers(filteredJobOffers);
-
-  }
+  };
 
   const handleOnClick = (event) => {
     console.log("click");
@@ -31,18 +36,17 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
   };
 
   const handleOnKeyDown = (e) => {
-    if (e.key === 'Enter'){
+    if (e.key === "Enter") {
       filterJobs();
     }
-
-  }
+  };
 
   useEffect(() => {
     setJobOffers(data);
   }, []);
 
   return (
-    <main className="bg-transparent min-h-screen px-6 pb-8 ">
+    <main className="bg-transparent min-h-screen px-6 pb-8 max-w-[1110px] mx-auto">
       {width > 767 ? (
         <div className="bg-white dark:bg-veryDarkBlue p-4 rounded-md flex gap-4 justify-between -translate-y-2/4">
           <div className="flex items-center gap-4 border-r basis-1/3">
@@ -51,7 +55,7 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
               type="text"
               placeholder="Filter by title..."
               className="bg-transparent"
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
               onKeyDown={handleOnKeyDown}
               value={searchTerm}
             />

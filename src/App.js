@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div className="font-primary text-darkGray bg-lightGray dark:bg-midnight transition transition-700">
-      <div className="max-w-[1110px] mx-auto">
+      <div className="">
         <Header width={width} />
 
         <Routes>
@@ -29,7 +29,7 @@ const App = () => {
           />
           <Route
             path="/job/:jobId"
-            element={<JobDetail jobOffers={jobOffers} />}
+            element={<JobDetail jobOffers={jobOffers} width={width} />}
           />
         </Routes>
       </div>

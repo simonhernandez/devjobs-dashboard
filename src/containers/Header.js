@@ -15,7 +15,7 @@ import {
 const Header = ({ width }) => {
   return (
     <header className="bg-transparent relative px-6 pt-8 md:pt-11 h-[136px] md:h-[160px] lg:h-[162px] overflow-x-hidden">
-      <div className="flex justify-between items-start">
+      <div className="lg:max-w-[1110px] lg:mx-auto">
         <div className="absolute z-0 top-0 left-0 w-full">
           {width > 767 && width < 1024 ? (
             <BgHeaderTablet />
@@ -25,6 +25,7 @@ const Header = ({ width }) => {
             <BgHeaderMobile />
           )}
         </div>
+        <div className="flex justify-between items-start">
         <a href="/" className="relative">
           <Logo />
         </a>
@@ -33,6 +34,7 @@ const Header = ({ width }) => {
           <IconSun />
           <SwitchToggle />
           <IconMoon />
+        </div>
         </div>
       </div>
     </header>
