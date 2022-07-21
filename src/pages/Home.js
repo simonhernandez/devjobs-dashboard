@@ -15,6 +15,7 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [locationSearchTerm, setLocationSearchTerm] = useState("");
   const [toggleFilter, setToggleFilter] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   let filteredJobOffers;
 
@@ -22,22 +23,33 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
     filteredJobOffers = jobOffers.filter(
       (jobOffer) =>
         (jobOffer.position.toLowerCase().includes(searchTerm) ||
-          jobOffer.company.toLowerCase().includes(searchTerm)) &&
+          jobOffer.company.toLowerCase().includes(searchTerm) ) &&
         jobOffer.location.toLowerCase().includes(locationSearchTerm)
     );
+    if (isChecked) {
+      filteredJobOffers = filteredJobOffers.filter((jobOffer) => jobOffer.contract==="Full Time")
+    }
     setSearchTerm("");
     setLocationSearchTerm("");
     setJobOffers(filteredJobOffers);
   };
 
   const handleOnClick = (event) => {
-    console.log("click");
     filterJobs();
+    setToggleFilter(false);
   };
 
   const handleOnKeyDown = (e) => {
     if (e.key === "Enter") {
       filterJobs();
+    }
+  };
+
+  const handleOnCheck = (e) => {
+    if (e.target.checked){
+      setIsChecked(true);
+    } else {
+      setIsChecked(false)
     }
   };
 
@@ -72,7 +84,12 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
             />
           </div>
           <div className="flex items-center basis-1/3">
-            <input type="checkbox" name="fulltime" id="fulltime" />
+            <input
+              type="checkbox"
+              name="fulltime"
+              id="fulltime"
+              onChange={handleOnCheck}
+            />
             <label
               htmlFor="fulltime"
               className="text-midnight dark:text-white font-bold ml-2 mr-auto"
@@ -124,7 +141,12 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
               />
             </div>
             <div className="flex gap-4 mb-6">
-              <input type="checkbox" name="fulltime" id="fulltime" />
+              <input
+                type="checkbox"
+                name="fulltime"
+                id="fulltime"
+                onChange={handleOnCheck}
+              />
               <label
                 htmlFor="fulltime"
                 className="text-midnight dark:text-white font-bold"
