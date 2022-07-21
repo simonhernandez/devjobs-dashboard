@@ -66,10 +66,11 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
             <input
               type="text"
               placeholder="Filter by title..."
-              className="bg-transparent"
+              className="bg-transparent text-midnight dark:text-white px-1"
               onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
               onKeyDown={handleOnKeyDown}
               value={searchTerm}
+              autoFocus
             />
           </div>
           <div className="flex items-center gap-4 border-r basis-1/3">
@@ -77,7 +78,7 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
             <input
               type="text"
               placeholder="Filter by location..."
-              className="bg-transparent"
+              className="bg-transparent text-midnight dark:text-white px-1"
               onChange={(e) => setLocationSearchTerm(e.target.value)}
               onKeyDown={handleOnKeyDown}
               value={locationSearchTerm}
@@ -134,7 +135,7 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
               <input
                 type="text"
                 placeholder="Filter by location..."
-                className="bg-transparent"
+                className="bg-transparent text-midnight dark:text-white px-1"
                 onChange={(e) => setLocationSearchTerm(e.target.value)}
                 onKeyDown={handleOnKeyDown}
                 value={locationSearchTerm}

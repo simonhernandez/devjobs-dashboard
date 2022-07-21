@@ -4,7 +4,7 @@ import { Button } from "../components";
 
 const JobDetail = ({ jobOffers, width }) => {
   const { jobId } = useParams();
-  const jobOffer = jobOffers[jobId - 1];
+  const jobOffer = jobOffers.filter((jobOffer) => (jobOffer.id == jobId))[0];
 
   return (
     <>
