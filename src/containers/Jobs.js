@@ -11,7 +11,7 @@ const Jobs = ({ jobOffers }) => {
   }
 
   return (
-    <section>
+    <section className="lg:pt-9">
       <ul className="flex flex-wrap justify-start gap-4 xl:gap-[30px]">
         {jobOffers.slice(0, shownCardsNumber).map((jobOffer, index) => {
           return (
