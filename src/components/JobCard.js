@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const JobCard = ({ jobOffer }) => {
   return (
     <Link to={`/job/${jobOffer.id}`}>
-      <div className="bg-white dark:bg-veryDarkBlue p-8 rounded-md relative lg:py-12">
+      <div className="bg-white dark:bg-veryDarkBlue p-8 rounded-md relative">
         <div
           style={{ backgroundColor: jobOffer.logoBackground }}
           className="w-[50px] h-[50px] rounded-2xl flex justify-center items-center absolute top-[-25px]"
