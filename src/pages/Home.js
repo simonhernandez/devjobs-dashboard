@@ -58,7 +58,7 @@ const Home = ({ jobOffers, setJobOffers, width }) => {
   }, []);
 
   return (
-    <main className="bg-transparent min-h-screen px-6 pb-8 max-w-[1110px] mx-auto">
+    <main className="bg-transparent min-h-screen px-6 pb-8 max-w-[1110px] mx-auto xl:px-0">
       {width > 767 ? (
         <div className="bg-white dark:bg-veryDarkBlue p-4 rounded-md flex gap-4 justify-between -translate-y-2/4">
           <div className="flex items-center gap-4 border-r basis-1/3">
