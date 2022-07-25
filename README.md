@@ -107,7 +107,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Simon Hernandez - [@SimonHernandez](https://www.linkedin.com/in/simonhernandezbarboza) - simonhernandezbarboza@gmail.com
 
-Project Link: [https://github.com/simonhernandez/githubsearch](https://github.com/simonhernandez/githubsearch)
+Project Link: [http://devjobs-dashboard.vercel.app/](http://devjobs-dashboard.vercel.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
